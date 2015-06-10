@@ -156,7 +156,7 @@ app.controller('MapCtrl', function($scope, trainStations) {
         "featureType": "poi.park",
         "elementType": "geometry",
         "stylers": [{
-          "color": "#dedede"
+          "color": "#BFE3BF"
         }, {
           "lightness": 21
         }]
@@ -195,7 +195,7 @@ app.controller('MapCtrl', function($scope, trainStations) {
         "featureType": "administrative",
         "elementType": "geometry.fill",
         "stylers": [{
-          "color": "#fefefe"
+          "color": "#BFE3BF"
         }, {
           "lightness": 20
         }]
