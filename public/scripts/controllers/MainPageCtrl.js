@@ -6,6 +6,9 @@ app.controller('MainPageCtrl', function($scope, $routeParams, GeneralUserService
   // var allApartmentsData = GeneralUserService.apartmentData;
   // $scope.apartments = allApartmentsData;
 
+  $scope.$root.test = function(marker) {
+    console.log('testing this out', marker)
+  }
 
   $scope.aptArray;
   $scope.getAptArr = function() {
@@ -25,10 +28,6 @@ app.controller('MainPageCtrl', function($scope, $routeParams, GeneralUserService
 
     $scope.modal_apartment = apartment;
 
-  }
-
-  $scope.hello = function() {
-    console.log("HELLO");
   }
 
   var clickedApt;
@@ -69,11 +68,7 @@ app.controller('MainPageCtrl', function($scope, $routeParams, GeneralUserService
                 max: 1800
               },
               station: marker.model.title,
-              func: {
-                func: function() {
-                  console.log(hello);
-                }
-              },
+
               events: {
                 click: function(marker, click, aptMarkers) {
                   aptMarkers.show = true;
@@ -312,13 +307,19 @@ app.controller('MainPageCtrl', function($scope, $routeParams, GeneralUserService
         $scope.createAptMarkers(marker);
         if ($scope.selectedApt.length > 0) {
           $scope.selectApt = $scope.selectedApt;
+          console.log($scope.selectedApt);
         }
       })
       marker.model.clicked = true;
     } else {
-      GeneralUserService.getAptData().then(function(data) {
-        $scope.selectApt = data;
-      })
+      console.log($scope.selectApt);
+      // if ($scope.selectApt.length === 0) {
+      //   console.log("Something")
+        GeneralUserService.getAptData().then(function(data) {
+          console.log(data);
+          $scope.selectApt = data;
+        })
+      // }
       marker.model.clicked = false;
       $scope.map.zoom = 14;
       $scope.$apply(function() {
